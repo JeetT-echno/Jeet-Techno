@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jeet Techno</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo h1 {
+            font-size: 24px;
+        }
+
+        header ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header ul li {
+            margin-left: 20px;
+        }
+
+        header ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+        }
+
+        .hero button {
+            background-color: white;
+            color: #4CAF50;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #f4f4f4;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .service-card h3 {
+            margin-top: 15px;
+            font-size: 22px;
+        }
+
+        .service-card p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .service-card button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* AC Booking Form Popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        .popup-content input, .popup-content select, .popup-content textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .popup-content button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .popup-content button.close-btn {
+            background-color: red;
+            color: white;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 50px 20px;
+            background-color: #e9e9e9;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        #contact p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Jeet Techno</h1>
+            </div>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Find the best professionals for your home services</h2>
+        <button onclick="scrollToSection('services')">Explore Services</button>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <!-- Window AC Routine Service -->
+            <div class="service-card">
+                <img src="https://www.accareindia.com/images/routing-ac.webp" alt="Window AC Service">
+                <h3>Routine Service (Window AC)</h3>
+                <p>Deep cleaning of AC for fresh air, filter and coils cleaned with water, and elements checked.</p>
+                <p><strong>Price: ₹ 499/-</strong></p>
+                <button onclick="openPopup()">Book Now</button>
+            </div>
+
+            <!-- Split AC Routine Service -->
+            <div class="service-card">
+                <img src="https://www.accareindia.com/images/routing-ac-one.webp" alt="Split AC Service">
+                <h3>Routine Service (Split AC)</h3>
+                <p>Deep cleaning of AC for fresh air, filter and coils cleaned with water, and elements checked.</p>
+                <p><strong>Price: ₹ 599/-</strong></p>
+                <button onclick="openPopup()">Book Now</button>
+            </div>
+
+            <!-- Routine Jet Service for Split AC -->
+            <div class="service-card">
+                <img src="https://www.accareindia.com/images/z-service.webp" alt="Jet Service for Split AC">
+                <h3>Routine Jet Service (Split AC)</h3>
+                <p>Deep cleaning of AC, checks the performance of the air conditioner after cleaning.</p>
+                <p><strong>Price: ₹ 999/-</strong></p>
+                <button onclick="openPopup()">Book Now</button>
+            </div>
+
+            <!-- Window AC Repair Service -->
+            <div class="service-card">
+                <img src="https://www.accareindia.com/images/ree.webp" alt="Window AC Repair">
+                <h3>Repair Service (Window AC)</h3>
+                <p>Checks the performance of the air conditioner, inspects all wires and elements, troubleshoots efficiently.</p>
+                <p><strong>Price: ₹ 499/-</strong></p>
+                <button onclick="openPopup()">Book Now</button>
+            </div>
+
+            <!-- Split AC Repair Service -->
+            <div class="service-card">
+                <img src="https://www.accareindia.com/images/re.webp" alt="Split AC Repair">
+                <h3>Repair Service (Split AC)</h3>
+                <p>Checks the performance of the air conditioner, inspects all wires and elements, troubleshoots efficiently.</p>
+                <p><strong>Price: ₹ 599/-</strong></p>
+                <button onclick="openPopup()">Book Now</button>
+            </div>
+
+            <!-- Window AC Installation Service -->
+            <div class="service-card">
+                <img src="https://www.accareindia.com/images/intalationss.webp" alt="Window AC Installation">
+                <h3>Installation (Window AC)</h3>
+                <p>Includes fixing of the AC stand, connecting the inlet assembly, and checking functionality.</p>
+                <p><strong>Price: ₹ 549/-</strong></p>
+                <button onclick="openPopup()">Book Now</button>
+            </div>
+
+            <!-- Window AC Uninstallation Service -->
+            <div class="service-card">
+                <img src="https://www.accareindia.com/images/windown-ac-un.webp" alt="Window AC Uninstallation">
+                <h3>Uninstallation (Window AC)</h3>
+                <p>Dismantling of the Air Conditioner from the window, disconnecting electricity, and packing the unit.</p>
+                <p><strong>Price: ₹ 399/-</strong></p>
+                <button onclick="openPopup()">Book Now</button>
+            </div>
+
+            <!-- Split AC Installation Service -->
+            <div class="service-card">
+                <img src="https://www.accareindia.com/images/installation-split.webp" alt="Split AC Installation">
+                <h3>Installation (Split AC)</h3>
+                <p>Includes fixing the stand, connecting the inlet assembly, and checking functionality.</p>
+                <p><strong>Price: ₹ 1349/-</strong></p>
+                <button onclick="openPopup()">Book Now</button>
+            </div>
+
+            <!-- Split AC Uninstallation Service -->
+            <div class="service-card">
+                <img src="https://www.accareindia.com/images/split-un.webp" alt="Split AC Uninstallation">
+                <h3>Uninstallation (Split AC)</h3>
+                <p>Dismantling of the AC stand, disconnecting electricity, and packing the unit.</p>
+                <p><strong>Price: ₹ 799/-</strong></p>
+                <button onclick="openPopup()">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AC Booking Form Popup -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2>Book AC Service</h2>
+            <form action="https://formspree.io/f/xjkgaayp" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                <label for="service-type">Select Service Type:</label>
+                <select id="service-type" name="service-type" required>
+                    <option value="installation">AC Installation</option>
+                    <option value="repair">AC Repair</option>
+                    <option value="maintenance">AC Maintenance</option>
+                </select>
+                <label for="location">Service Location:</label>
+                <input type="text" id="location" name="location" required placeholder="Enter service location">
+                <label for="message">Additional Information:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Enter any additional details"></textarea>
+                <button type="submit">Submit Booking</button>
+                <button type="button" class="close-btn" onclick="closePopup()">Close</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Information</h2>
+        <p><strong>Jeet Techno</strong></p>
+        <p>Mobile: Modern Market, 7, Pandit Nehru Marg, Indradeep Society, Jamnagar, Gujarat 361008</p>
+        <p>Phone: 088495 12959</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Jeet Techno. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: "smooth"
+            });
+        }
+
+        function openPopup() {
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>
